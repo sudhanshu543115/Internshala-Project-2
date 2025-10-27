@@ -1,0 +1,226 @@
+/* App layout */
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: #0e0f13;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.app {
+  min-height: 100vh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+.left-empty {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .left-empty {
+    display: block; /* intentionally empty column */
+  }
+}
+
+.right-stack {
+  max-width: 640px;
+  width: 100%;
+  padding-right: 12px; /* subtle right padding similar to mock */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Card base (both widgets) */
+.card {
+  border-radius: 16px;
+  background: rgba(23, 25, 34, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* Header with icon + pills/badge */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 0 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #aeb1b8;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #222430;
+  padding: 6px;
+  border-radius: 999px;
+}
+
+.pill {
+  padding: 8px 14px;
+  font-size: 14px;
+  color: #9da3ae;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 160ms ease;
+}
+
+.pill:hover {
+  color: #ffffff;
+  background: #2a2d36;
+}
+
+.pill.active {
+  color: #ffffff;
+  background: #0f1117;
+  box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Body copy */
+.card-body {
+  padding: 14px 16px 16px 16px;
+  color: #c9ccd3;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.copy {
+  display: grid;
+  gap: 10px;
+}
+
+.muted-strong {
+  color: #e7e8ea;
+}
+
+/* Badge used in Gallery header */
+.badge {
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #0f1117;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Gallery header actions */
+.gallery-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  background: #2b2d35;
+  color: #e6e7ea;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  transition: 140ms ease;
+}
+
+.btn:hover { background: #3b3d45; }
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  border: none;
+  background: #0f1117;
+  color: #cdd0d6;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  transition: 140ms ease;
+}
+
+.icon-btn:hover {
+  color: #fff;
+  background: #2b2d35;
+}
+
+/* Gallery row */
+.empty {
+  text-align: center;
+  padding: 40px 0 44px 0;
+  color: #8e94a0;
+}
+
+.gallery-row {
+  display: flex;
+  gap: 16px;
+  padding: 12px 16px 16px 16px;
+  overflow-x: auto;
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+.gallery-row::-webkit-scrollbar { display: none; } /* Chrome/Safari */
+
+.tile {
+  width: 144px;
+  height: 144px;
+  flex: 0 0 auto;
+  border-radius: 16px;
+  background: #2d2f35;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  overflow: hidden;
+  transition: 180ms ease;
+}
+.tile:hover { box-shadow: 0 12px 28px rgba(0,0,0,0.5); }
+
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 220ms ease;
+}
+.tile:hover img { transform: scale(1.08); }

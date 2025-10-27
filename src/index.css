@@ -1,0 +1,4 @@
+/* minimal base; we style everything in App.css */
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; }
+body { margin: 0; }
